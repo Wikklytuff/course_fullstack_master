@@ -25,3 +25,11 @@ body {
 .music-btn.off {
     background-image: url(./assert/music.png);
 }
+/* 滑屏样式 */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide:nth-child(odd) {
+    background-color: brown;
+}
