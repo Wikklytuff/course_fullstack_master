@@ -1,0 +1,9 @@
+<!-- 写页面结构的地方 -->
+<!-- view相当于div -->
+<!-- image img-->
+<view class="container" hover-class="none" hover-stop-propagation="false">
+  <navigator class="" target="" url="/pages/detail/index" hover-class="navigator-hover" open-type="navigate">
+    <text class="title">{{ title }}</text>
+  </navigator>
+  <image class="car" src="{{ car }}" />
+</view>

@@ -1,0 +1,31 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "你不知道的js",
+            "author": "美国人"
+        },
+        {
+            "id": 2,
+            "title": "学习JS数据结构与算法",
+            "author": "洛伊安妮"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "很好",
+            "postId": 1
+        },
+        {
+            "id": 2,
+            "body": "很厉害",
+            "postId": 1
+        },
+        {
+            "id": 3,
+            "body": "很不错",
+            "postId": 2
+        }
+    ]
+}

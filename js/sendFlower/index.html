@@ -1,0 +1,170 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送花</title>
+</head>
+<body>
+    <script>
+        // chrome 最快的浏览器
+        // 浏览器 上网代理 ， 运行页面时 ， js的宿主环境
+        // 作用域
+        function func() {
+            let c = 3; // 局部变量
+        }
+        // 全局变量
+        // 变量名 地址的映射 属于运行环境的作用域
+        // 空间大小 决定 整数空间
+        let d; //undefined 没有值， 类型未定义， 空间起始地址有，但空间大小为定
+        var a = 1; // var es5 及以前 js变量常量生命的关键字 
+        let b = 2; // es6 2015之后提供的let const
+        // const name = "罗小黑";
+        // let age = 19;
+        // const hometown = '南昌';
+        // const sex = '男';
+        // 除了简单数据类型之外的一切都是对象
+        // 对象 字面量 
+        const obj = {
+            name: '罗小黑',
+            age: 19,
+            hometown: '南昌',
+            sex: '男'
+        };
+
+        // 对象 talk in js
+        const obj1 = {
+            name: '罗小白',
+            age: 16,
+            hometown:'上海',
+            sex: '女',
+            isSingle: true,
+            bf: null,
+            work_status: undefined,
+            // null undefined
+            // 内部函数访问全局变量可以访问
+            sendFlower(target) {
+                // console.log(target);
+                // 送花代码
+                // target 类型是对象，对象上有sendFlower 方法
+                target.receiveFlower(obj1);
+            }
+        }
+
+        // 对象由 属性 与 方法 组成
+        // 对象
+        // [] 数组 {} 对象
+        const lily = {
+            name: '莉莉',
+            age: 18,
+            receiveFlower(sender) {
+                console.log('收到了' + sender.name + '送的花');
+            }
+        }
+        // obj1.sendFlower(lily);
+
+        // 代理人
+        const lucy = {
+            name: '露西',
+            hometown: '南昌',
+            // 方法 也叫 接口
+            receiveFlower(target){
+                console.log('帮忙送花');
+                obj1.sendFlower(target);
+            },
+        }
+        
+        obj1.sendFlower(lily);
+        
+
+
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送花</title>
+</head>
+<body>
+    <script>
+        // chrome 最快的浏览器
+        // 浏览器 上网代理 ， 运行页面时 ， js的宿主环境
+        // 作用域
+        function func() {
+            let c = 3; // 局部变量
+        }
+        // 全局变量
+        // 变量名 地址的映射 属于运行环境的作用域
+        // 空间大小 决定 整数空间
+        let d; //undefined 没有值， 类型未定义， 空间起始地址有，但空间大小为定
+        var a = 1; // var es5 及以前 js变量常量生命的关键字 
+        let b = 2; // es6 2015之后提供的let const
+        // const name = "罗小黑";
+        // let age = 19;
+        // const hometown = '南昌';
+        // const sex = '男';
+        // 除了简单数据类型之外的一切都是对象
+        // 对象 字面量 
+        const obj = {
+            name: '罗小黑',
+            age: 19,
+            hometown: '南昌',
+            sex: '男'
+        };
+
+        // 对象 talk in js
+        const obj1 = {
+            name: '罗小白',
+            age: 16,
+            hometown:'上海',
+            sex: '女',
+            isSingle: true,
+            bf: null,
+            work_status: undefined,
+            // null undefined
+            // 内部函数访问全局变量可以访问
+            sendFlower(target) {
+                // console.log(target);
+                // 送花代码
+                // target 类型是对象，对象上有sendFlower 方法
+                target.receiveFlower(obj1);
+            }
+        }
+
+        // 对象由 属性 与 方法 组成
+        // 对象
+        // [] 数组 {} 对象
+        const lily = {
+            name: '莉莉',
+            age: 18,
+            receiveFlower(sender) {
+                console.log('收到了' + sender.name + '送的花');
+            }
+        }
+        // obj1.sendFlower(lily);
+
+        // 代理人
+        const lucy = {
+            name: '露西',
+            hometown: '南昌',
+            // 方法 也叫 接口
+            receiveFlower(target){
+                console.log('帮忙送花');
+                obj1.sendFlower(target);
+            },
+        }
+        
+        obj1.sendFlower(lily);
+        
+
+
+    </script>
+</body>
+>>>>>>> 4336100b51fb52fa4c574f514e1cf57c84de7918
+</html>

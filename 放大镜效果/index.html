@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #photo {
+            width: 200px;
+            height: 200px;
+            touch-action: none;
+            /* background-size: 100%; */
+            background: url("images/大熊山表情1.png") no-repeat;
+            position: relative;
+        }
+
+        #drag {
+            width: 45px;
+            height: 45px;
+            background: rgb(70, 59, 59);
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* touch-action: none; */
+            display: none;
+        }
+
+        #show {
+            margin-top: 20px;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            display: none;
+        }
+
+        #big {
+            width: 1024px;
+            height: 1024px;
+            background: url("images/大熊山表情.png") no-repeat;
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="photo">
+        <div id="drag">
+        </div>
+    </div>
+    <div id="show">
+        <div id="big">
+        </div>
+    </div>
+    <script type="text/javascript">
+        var photo = document.getElementById("photo");
+        var drag = document.getElementById("drag");
+        var show = document.getElementById("show");
+        var big = document.getElementById("big");
+        window.onmousemove = function (event) {
+            //兼容性处理
+            var e = event || window.event;
+            //为了使鼠标处于透明框的中心部位，需要用鼠标位置减去透明框宽度和高度的一半
+            //x,y分别为经过处理后的鼠标横纵坐标
+            var x = e.clientX - drag.offsetWidth / 2;
+            var y = e.clientY - drag.offsetHeight / 2;
+            //maxL,maxT分别为最大横向和最大纵向移动距离
+            var maxL = photo.offsetWidth - drag.offsetWidth;
+            var maxT = photo.offsetHeight - drag.offsetHeight;
+            //如果横向坐标超过最大距离，使横向坐标等于最大距离
+            if (x >= maxL) {
+                x = maxL;
+            }
+            //如果横向坐标小于最大距离，使横向坐标等于0
+            if (x <= 0) {
+                x = 0;
+            }
+            //如果纵向坐标超过最大距离，使纵向坐标等于最大距离
+            if (y >= maxT) {
+                y = maxT;
+            }
+            //如果纵向坐标小于0，使纵向坐标等0
+            if (y <= 0) {
+                y = 0;
+            }
+            //控制透明框的位置
+            drag.style.left = x + "px";
+            drag.style.top = y + "px";
+            //控制展示框显示的位置
+            show.scrollLeft = 5 * x;
+            show.scrollTop = 5 * y;
+        }
+
+        // 移动端
+        var maxW = photo.clientWidth - drag.offsetWidth;
+        var maxH = photo.clientHeight - drag.offsetHeight;
+        photo.addEventListener('touchstart', function (e) {
+            var ev = e || window.event;
+            var touch = ev.targetTouches[0];
+            oL = touch.clientX - photo.offsetLeft ;
+            oT = touch.clientY - photo.offsetTop;
+            document.addEventListener("touchmove", defaultEvent, false);
+        })
+        photo.addEventListener('touchmove', function (e) {
+            var ev = e || window.event;
+            var touch = ev.targetTouches[0];
+            // 除2让触碰点和蒙版在一起
+            var oLeft = touch.clientX - oL /2;
+            var oTop = touch.clientY - oT /2;
+            if (oLeft <= 0) {
+                oLeft = 0;
+            } else if (oLeft >= maxW) {
+                oLeft = maxW - 45;
+            }
+            if (oTop <= 0) {
+                oTop = 0;
+            } else if (oTop >= maxH) {
+                // 算上蒙版的面积
+                oTop = maxH - 45;
+            }
+            drag.style.left = oLeft + 'px';
+            drag.style.top = oTop + 'px';
+            //控制展示框显示的位置
+            show.scrollLeft = 5 * oLeft;
+            show.scrollTop = 5 * oTop;
+        })
+        photo.addEventListener('touchend', function () {
+            document.removeEventListener("touchmove", defaultEvent);
+            //透明框和展示框隐藏
+            show.style.display = "none";
+            drag.style.display = "none";
+        })
+        function defaultEvent(e) {
+            e.preventDefault();
+        }
+
+        //图片的鼠标移入事件
+        photo.onmouseover = function () {
+            //透明框和展示框出现
+            show.style.display = "block";
+            drag.style.display = "block";
+        }
+        photo.ontouchstart = function () {
+            //透明框和展示框出现
+            show.style.display = "block";
+            drag.style.display = "block";
+        }
+        //图片的鼠标移出事件
+        photo.onmouseleave = function () {
+            //透明框和展示框隐藏
+            show.style.display = "none";
+            drag.style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>

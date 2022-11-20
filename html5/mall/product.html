@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天花板级电商组件界面</title>
+    <!-- 为什么要引入weui -->
+    <!-- bookcdn 远程引入css, 需要weui.css, 但是本地没有 -->
+    <!-- 选择压缩后的代码, 更小, 响应更快 -->
+    <link rel="stylesheet" 
+    href="https://cdn.bootcdn.net/ajax/libs/weui/2.5.4/style/weui.min.css" >
+    <link rel="stylesheet" href="./css/commom.css">
+    <link rel="stylesheet" href="./css/mark.css">
+</head>
+<body>
+    <!-- 选择了一个好用的框架weui -->
+    <!-- 省去70%工作 -->
+    <!-- 便于复用组件 -->
+    <!-- weui-mark 影视商品组件 -->
+    <div class="page">
+        <div class="page__hd">
+            <div class="weui-flex head-con">
+                <div class="weui-flex__item weui-flex__item_left"></div>
+                <div class="weui-flex__item"><div class="placeholder">产品</div></div>
+                <div class="weui-flex__item weui-flex__item_right"></div>
+            </div>
+        </div>
+        <div class="page__db">
+            <ul class="weui-mark">
+                <li>
+                    <a href="product_detail.html">
+                        <div class="weui-mark__img">
+                            <img src="./images/pic.jpg" alt="" />
+                        </div>
+                        <!-- weui-mark__rt 右上角标签在组件中的作用, 组件样式  -->
+                        <!-- 提供一个全栈中的通用样式 如 bg-green bg-yellow bg-blue... -->
+                        <div class="weui-mark__rt bg-green">免费</div>
+                        <div class="weui-mark__lb">更新到101集</div>
+                        <div class="weui-mark__vip">
+                            <span class="weui-mark__lt bg-green">自制剧</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // 写完的代码未来发布也需要压缩
+    </script>
+</body>
+</html>

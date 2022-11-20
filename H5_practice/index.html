@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 流式布局学习 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="app">
+        <ul>
+            <li><img src="images\close.png"></li>
+            <li><img src="images\logo.png"></li>
+            <li>你的校园易物小站</li>
+            <li>马上注册</li>
+        </ul>
+    </header>
+    <!-- 搜索 -->
+    <div class="search_wrap">
+        <div class="search_btn"></div>
+        <div class="search">
+            <div class="jxufe_icon"></div>
+            <!-- <div class="mirror"></div> -->
+        </div>
+        <div class="search_login">登录</div>
+    </div>
+    <!-- 主体内容 -->
+    <div class="main_content">
+        <!-- 滑动图 -->
+        <div class="slider">
+            <img src="upload/banner.dpg" alt="">
+        </div>
+        <!-- 品牌日 -->
+        <div class="brand">
+            <div>
+                <a href="#"></a>
+                <img src="upload/pic11.dpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="upload/pic22.dpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                <img src="upload/pic33.dpg" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- 图标 -->
+        <nav>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav2.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav3.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            <a href="">
+                <img src="upload/nav1.webp" alt="">
+                <span>超市</span>
+            </a>
+            
+        </nav>
+        <!-- 新闻 -->
+        <div class="news">
+            <a href="#">
+                <img src="upload/new1.dpg" alt="">
+            </a>
+            <a href="#">
+                <img src="upload/new2.dpg" alt="">
+            </a>
+            <a href="#">
+                <img src="upload/new3.dpg" alt="">
+            </a>
+        </div>
+    </div>
+    <div id="ball"></div>
+    <script type="text/javascript">
+        var oBall = document.querySelector('#ball'),
+            leftNum = 0,
+            topNum = 0,
+            aBall = null,
+            length = 0;
+
+        reSize();
+        window.onresize = reSize;
+
+        function reSize() {
+            leftMax = document.documentElement.clientWidth - 120;
+            topMax = document.documentElement.clientHeight - 120;
+        }
+
+        creatBall(oBall, 3);         //传参，往oBall里面追加10个小球
+        aBall = oBall.children;      //获取oBall里面的所有小球
+        length = aBall.length;
+        function creatBall(obj, num) {     //创建小球的function
+            for (var i = 0; i < num; i++) {
+                var cBall = document.createElement('div');
+                cBall.className = 'ball';
+                ballBg(cBall);
+                cBall.leftNum = cBall.topNum = (i + 1) * 1;    //这里去i+1而不取i的原因是，一个小球的i为0，如果不取i+1，那么第一个小球会永远在左上角不动并且不停地变颜色
+                obj.appendChild(cBall);
+            };
+        };
+
+        setInterval(function () {       //这里注意需要将之前所有对oBall设置的都换成aBall[i]
+            for (var i = 0; i < length; i++) {
+                var Left = aBall[i].offsetLeft + aBall[i].leftNum,
+                    Top = aBall[i].offsetTop + aBall[i].topNum;
+                if (Left >= leftMax) {
+                    Left = leftMax;
+                    aBall[i].leftNum = -aBall[i].leftNum;
+                    ballBg(aBall[i]);
+                } else if (Left <= 0) {
+                    Left = 0;
+                    aBall[i].leftNum = -aBall[i].leftNum;
+                    ballBg(aBall[i]);
+                };
+                if (Top >= topMax) {
+                    Top = topMax;
+                    aBall[i].topNum = -aBall[i].topNum;
+                    ballBg(aBall[i]);
+                } else if (Top <= 0) {
+                    Top = 0;
+                    aBall[i].topNum = -aBall[i].topNum;
+                    ballBg(aBall[i]);
+                };
+                aBall[i].style.left = Left + 'px';
+                aBall[i].style.top = Top + 'px';
+            }
+        }, 30);
+
+        // 随机获取小球颜色
+        function ballBg(obj) {
+            var r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+            obj.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+
+
+    </script>
+    <p></p>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+#imgPage {
+    width: 800px;
+    height: 300px;
+    margin: 80px auto;
+    font-size: 0;
+    perspective: 800px;
+}
+#imgPage img{
+    width: 120px;
+    /* animation: twinkle 1s 2s; */
+}
+#btn {
+    width: 140px;
+    height: 40px;
+    margin: 0 auto;
+    background: pink;
+    text-align: center;
+    line-height: 40px;
+    color: brown;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px gray;
+    cursor: pointer;
+}
+
+/* #imgPage img:nth-child(1){
+    animation: twinkle 1s 2s;
+} */
+
+@keyframes twinkle{
+    6%{
+        transform:scale(0);
+    }
+    100%{
+        opacity: 0;
+        /* transform: scale(1) */
+    }
+}
+
+@keyframes rotate{
+    100%{
+        transform: rotateY(-360deg) translate(0);
+        opacity: 1;
+    }
+}

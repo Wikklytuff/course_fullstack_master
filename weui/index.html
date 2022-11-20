@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEUI Cell 源码</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            /* 轮廓 不影响盒子模型计算的“边框” */
+        }
+
+        /* inherit 会继承的css */
+        html {
+            /* ie */
+            -ms-text-size-adjust: 100%;
+            /* chrome为首，360浏览器 老年机强制放大文字，不允许缩放文字 */
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body,
+        html {
+            height: 100%;
+            /* 摁上去的高亮颜色 移动端独有的样式 将任何元素的默认高亮给清楚*/
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            /* 苹果 安卓 鸿蒙 默认添加苹果字体 */
+            font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+            --weui-BG-0: #111;
+            --weui-FG-1: rgba(255, 255, 255, 0.5);
+            --weui-BG-2: #191919;
+        }
+
+        .page,
+        body {
+            /* 
+                css 变量 css2 css3 css4
+                多次使用
+            */
+            background-color: var(--weui-BG-0);
+        }
+
+        .weui-cells__title {
+            margin-top: 16px;
+            margin-bottom: 3px;
+            padding-left: 16px;
+            padding-right: 16px;
+            color: rgba(0, 0, 0, 0.5);
+            color: var(--weui-FG-1);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .weui-cells {
+            margin-top: 8px;
+            background-color: #fff;
+            background-color: var(--weui-BG-2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .weui-cell {
+            display: flex;
+        }
+
+        .weui-cell__bd {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <a href="javasript:;" class="test">test一下</a> -->
+    <div class="weui-cells__title">设置</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+        <div class="weui-cell__hd">hd</div>
+        <div class="weui-cell__bd">bd</div>
+        <div class="weui-cell__ft">ft</div>
+        </div>
+    </div>
+</body>
+
+</html>

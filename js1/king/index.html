@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// JS 强大表现力
+// const 在JS中定义常量 -> 一定要赋初值 关键字 保留字 
+// let 变量 var let 区别
+// es6+ 新版本
+// var 老版本
+let i = 2;
+if (true) {
+    // 块级作用域
+    console.log(i);
+    let sum; // let 支持块级作用域 不能像var一样全局声明
+    sum = 10;
+    sum ++;
+}
+// console.log(sum); // 全局作用域 无法找到该变量
+
+const duck = {
+    sing() {
+        console.log('嘎嘎嘎');
+    }
+}
+
+// 接口
+const chick = {
+    sing() {
+        console.log('嘎嘎嘎');
+    }
+}
+
+const choir = []; // 合唱团
+for (let i = 0; i < 999; i++) {
+    choir.push(duck);
+}
+if (typeof chick.sing == 'function') {
+    choir.push(chick);
+}
+
+if (choir.length >= 1000) {
+    console.log('合唱团招募成功！');
+} else {
+    console.log('继续招募');
+}
+console.log(choir.length);
+</script>
+</body>
+</html>

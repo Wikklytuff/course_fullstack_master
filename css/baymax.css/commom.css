@@ -1,0 +1,73 @@
+<<<<<<< HEAD
+/* 标签选择器 css selector*/
+body {
+    background: pink;
+}
+/* 基础样式 */
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    margin-bottom: 10px;
+}
+/* 业务样式 更细致的选择器 */
+/* 权重更大 优先级 
+    div p 1 标签选择器
+    .boy 10 类选择器
+    #hero 100 id选择器
+    
+*/
+
+#hero {
+    background-color: green;
+}
+
+div.boy {
+    background-color: yellow;
+}
+
+.boy {
+    background-color: black;
+}
+
+.baymax {
+    background: white;    
+}
+
+=======
+/* 标签选择器 css selector*/
+body {
+    background: pink;
+}
+/* 基础样式 */
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    margin-bottom: 10px;
+}
+/* 业务样式 更细致的选择器 */
+/* 权重更大 优先级 
+    div p 1 标签选择器
+    .boy 10 类选择器
+    #hero 100 id选择器
+    
+*/
+
+#hero {
+    background-color: green;
+}
+
+div.boy {
+    background-color: yellow;
+}
+
+.boy {
+    background-color: black;
+}
+
+.baymax {
+    background: white;    
+}
+
+>>>>>>> 4336100b51fb52fa4c574f514e1cf57c84de7918

@@ -1,0 +1,351 @@
+@media screen and (min-width:1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+    /* 酱菜红 */
+    --weui-BG-0: rgb(148, 4, 4);
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    /* color: #ccc; */
+    text-decoration: none;
+}
+
+/* header */
+header {
+    padding-left: 0;
+}
+
+.container {
+    background-color: #fff;
+}
+
+
+.logo {
+    background-color: var(--weui-BG-0);
+}
+
+.logo img {
+    /* 因为图片不需要缩放 */
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 进入xs屏幕，logo图片隐藏 */
+/* 准备好一个盒子在logo中，只在xs屏幕显示 */
+.logo span {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+.nav li {
+    position: relative;
+}
+.nav img {
+    position: absolute;
+    top: 60%;
+    margin-top: -15px;
+    margin-left: 30px;
+}
+
+.nav {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+
+}
+
+/* sm和xs屏幕li浮动 */
+@media screen and (max-width:991px) {
+    .nav li {
+        float: left;
+        width: 20%;
+    }
+
+    article {
+        margin-top: 10px;
+    }
+
+    .banner {
+        display: flex;
+        justify-content: center;
+        /*弹性盒子里边横轴对齐方式*/
+        align-items: center;
+        /* 弹性盒子纵轴的对齐方式*/
+    }
+    .container .title {
+        width: 690px;
+        height: 50px;
+        background-color: rgba(64, 62, 62);
+        /* opacity: 80%; */
+        position: fixed;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .nav .button {
+        font-size: 14px;
+        padding-left: 0px;
+        line-height: 50px;
+        text-align: center;
+    }
+
+    .news ul li:nth-child(1) {
+        width: 100%;
+        padding-right: 0 !important;
+    }
+
+    .news ul li {
+        width: 50%;
+    }
+    
+    .publish h3 {
+        font-size: 14px;
+    }
+
+    .banner {
+        display: flex;
+        justify-content: center;
+        /*弹性盒子里边横轴对齐方式*/
+        align-items: center;
+        /* 弹性盒子纵轴的对齐方式*/
+    }
+
+    .container .title {
+        width: 86%;
+        height: 50px;
+        background-color: rgba(64, 62, 62);
+        /* opacity: 80%; */
+        position: fixed;
+        z-index: 9999;
+    }
+}
+
+.nav .button {
+    border-radius: 4px;
+    /* background-color: #dad3d1; */
+    /* padding-right: 35px; */
+    border: none;
+    /* color: #333; */
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding-left: 30px;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.nav .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.nav .button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.nav .button:hover span {
+    padding-right: 25px;
+}
+
+.nav .button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* 删除button点击后的黑色边框 */
+.nav .button:focus {
+    outline: 0;
+}
+
+.nav a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding-left: 30px;
+}
+
+.nav a:hover {
+    background-color: white;
+    color: #333;
+    width: 200px;
+}
+
+.nav a::before {
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+.news li {
+    width: 25%;
+    float: left;
+    height: 128px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.news li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #66ccff;
+    position: relative;
+}
+
+.news li a img {
+    width: 100%;
+    height: 100%;
+}
+
+.news li a p {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 41px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    margin-bottom: 0;
+    padding: 5px 10px;
+    font-size: 15px;
+    color: white;
+}
+
+.news li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+    padding-right: 10px !important;
+    /* background-color: pink; */
+}
+
+.news li:nth-child(1) p {
+    font-size: 20px;
+    line-height: 41px;
+    padding: 0 10px;
+}
+
+.news li:nth-child(odd) {
+    padding-right: 0;
+}
+
+.publish {
+    border-top: 1px solid #ccc;
+}
+
+.publish .row {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic img {
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.hot {
+    display: block;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+    border: 1px solid #ccc;
+}
+
+.hot span {
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.hot p {
+    font-size: 12px;
+}
+
+.title {
+    width: 1250px;
+    height: 50px;
+    background-color: var(--weui-BG-0);
+    /* opacity: 20%; */
+    position: fixed;
+    z-index: 9999;
+}
+
+.title ul li {
+    float: left;
+    height: 50px;
+    background-color: #333333;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+}
+
+.title ul li:nth-child(1){
+    width: 8%;
+}
+
+.title ul li:nth-child(1) img{
+    width: 10px;
+}
+
+.title ul li:nth-child(2){
+    width: 10%;
+}
+
+.title ul li:nth-child(2) img{
+    width: 30px;
+    vertical-align: middle;
+}
+
+.title ul li:nth-child(3){
+    width: 57%;
+}
+
+.title ul li:nth-child(4){
+    width: 25%;
+    background-color: #F63515;
+}
+
+.row {
+    width: 100%;
+    position: relative;
+    padding: 50px 0px 0px 0px;;
+}
+
+

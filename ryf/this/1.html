@@ -1,0 +1,74 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this底层原理</title>
+</head>
+<body>
+    <script>
+        // 函数 在内存中其实是独立的 并不是属于obj
+        // obj不占有这个函数 只是指向函数所在的地址
+        // {} 对象放于堆内存, 存储复杂数据类型; obj放在栈内存, obj是全局变量 存的是内存地址
+        // obj.bar obj .bar obj不要花太多空间就能满足存储, 只需要存放一个地址, 而不需要太多空间的就会放入栈内存
+        // 匿名函数会在独立的堆内存中申请空间, 函数对obj.foo -> 引用关系
+        // 需要this来营造执行时的上下文环境, 将函数调入执行栈之中(JS), 执行完之后函数会出栈, 再次指向栈底
+        // JS运行时, 会有一个执行栈代表代码执行到了何处
+        var obj = {
+            bar: 1, // 简单数据类型 属于obj
+            foo: function(){
+                var x = 2;
+                console.log(this);
+            }
+        }
+        // foo 存的是一个地址，指向了函数所在的地址
+        // 全局变量环境下的普通函数
+        var foo = obj.foo; // 函数体
+        var bar = 2;
+        // 函数是一个局部作用域, 为了与全局的区分开来, js在执行栈的数据结构时, 
+        // 要分成很多种作用域, 一个时刻只能有一个作用域在执行 
+        obj.foo(); // this指向obj对象, 函数执行完后出栈
+        foo(); // 普通函数 this指向全局
+
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this底层原理</title>
+</head>
+<body>
+    <script>
+        // 函数 在内存中其实是独立的 并不是属于obj
+        // obj不占有这个函数 只是指向函数所在的地址
+        // {} 对象放于堆内存, 存储复杂数据类型; obj放在栈内存, obj是全局变量 存的是内存地址
+        // obj.bar obj .bar obj不要花太多空间就能满足存储, 只需要存放一个地址, 而不需要太多空间的就会放入栈内存
+        // 匿名函数会在独立的堆内存中申请空间, 函数对obj.foo -> 引用关系
+        // 需要this来营造执行时的上下文环境, 将函数调入执行栈之中(JS), 执行完之后函数会出栈, 再次指向栈底
+        // JS运行时, 会有一个执行栈代表代码执行到了何处
+        var obj = {
+            bar: 1, // 简单数据类型 属于obj
+            foo: function(){
+                var x = 2;
+                console.log(this);
+            }
+        }
+        // foo 存的是一个地址，指向了函数所在的地址
+        // 全局变量环境下的普通函数
+        var foo = obj.foo; // 函数体
+        var bar = 2;
+        // 函数是一个局部作用域, 为了与全局的区分开来, js在执行栈的数据结构时, 
+        // 要分成很多种作用域, 一个时刻只能有一个作用域在执行 
+        obj.foo(); // this指向obj对象, 函数执行完后出栈
+        foo(); // 普通函数 this指向全局
+
+    </script>
+</body>
+>>>>>>> 4336100b51fb52fa4c574f514e1cf57c84de7918
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let a = 1; // 全局
+    {
+        /* 代码片段 */
+        var b = 3; // 老一点
+        let a = 2; //
+        const name = '汪汪子';
+        console.log(name, 2);
+    }
+    // 访问局部变量不报错，访问未声明的变量会报错
+    console.log(name, a, b, '-----------------');
+// 1. 全局作用域   window
+// 2. 局部作用域  
+    // - 函数
+    // - 块级作用域
+</script>
+</body>
+</html>
