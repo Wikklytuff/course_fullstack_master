@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    /* 至少满屏 */
+    height: 100%;
+}
+body {
+    font-size: 16px;
+    background: pink;
+}
+.music-btn {
+    /* 固定定位 */
+    /* 窗口定位 */
+    position: fixed;
+    top: 0.6667rem;
+    left: 0.66667rem;
+    width: 1.0667rem;
+    height: 1.0667rem;
+    background: url(./assert/close.png) no-repeat center;
+    /* 移动端常用 等比缩放图片 */
+    background-size: cover;
+}
+.music-btn.off {
+    background-image: url(./assert/music.png);
+}
